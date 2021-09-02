@@ -1,0 +1,73 @@
+<div class="container" fxFlex>
+
+  <form #formulario="ngForm" (ngSubmit)="submit(formulario)" >
+
+    <div class="a">
+      <mat-form-field>
+        <mat-label class="estilomat">Titulo:</mat-label>
+        <input #titulo="ngModel" name="titulo" [(ngModel)]="nuevo.titulo" matInput placeholder="Ingrese el Titulo"
+          class="estiloinput" [ngClass]="{ 'is-invalid': formulario.submitted && titulo.invalid }" required>
+          <div *ngIf="formulario.submitted && titulo.invalid" >
+            <div *ngIf="titulo.errors.required">Titulo is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="a">
+      <mat-form-field>
+        <mat-label class="estilomat">Autor:</mat-label>
+        <input #autor="ngModel" name="autor" [(ngModel)]="nuevo.autor" matInput placeholder="Ingrese el Autor"
+          class="estiloinput" [ngClass]="{ 'is-invalid': formulario.submitted && autor.invalid }" required>
+          <div *ngIf="formulario.submitted && autor.invalid" >
+            <div *ngIf="titulo.errors.required">Autor Name is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+
+    
+    <!-- <div class="a">
+      <mat-form-field>
+        <mat-label class="estilomat">Fecha:</mat-label>
+        <input #fecha="ngModel" name="fecha" [(ngModel)]="nuevo.fecha" matInput placeholder="Ingrese la Fecha"
+          class="estiloinput" [ngClass]="{ 'is-invalid': formulario.submitted && fecha.invalid }" required>
+          <div *ngIf="formulario.submitted && fecha.invalid" >
+            <div *ngIf="fecha.errors.required">Fecha Name is required</div>
+        </div>
+      </mat-form-field>
+    </div> -->
+
+    <div class="a">
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input [matDatepicker]="picker" #fecha="ngModel" name="fecha" [(ngModel)]="nuevo.fecha" matInput placeholder="Ingrese la Fecha"
+        class="estiloinput" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    
+        </div>
+
+    <div class="a">
+      <mat-form-field>
+        <mat-label class="estilomat">Contenido:</mat-label>
+        <textarea #contenido="ngModel" name="contenido" [(ngModel)]="nuevo.contenido" matInput  type="text" name="correo" placeholder="Email del Paciente" minlength="4" required required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          class="estiloinput" ></textarea>
+
+          <mat-error *ngIf="formulario.controls['correo']?.errors?.required">Debe Ingresar un email del Paciente</mat-error>
+          <mat-error *ngIf="formulario.controls['correo']?.errors?.pattern">El email del Paciente parece erróneo</mat-error>
+
+      </mat-form-field>
+
+    </div>
+    <div fxLayoutAlign="center">
+      <button mat-raised-button color="primary" type="submit" color="primary" class="boton" 
+      (click)="openSnackBar('Ingresado','accion')" aria-label="Ingresado"
+      >Ingresar</button>
+
+    </div>
+  </form>
+</div>
+
+

@@ -1,0 +1,22 @@
+
+
+<div class="container">
+    <h1>Popular</h1>
+<ng-container *ngIf="blogs">
+
+    <div *ngFor="let blog of blogs">
+        <a routerLink="/blog_individual/{{blog.id}}">
+            <div class="mat-elevation-z6">
+                <h2>
+                    {{blog.titulo}} </h2>
+
+                <h3>{{blog.autor}} </h3><br>
+                <!-- <h3>{{blog.fecha}}</h3> -->
+                <h3>{{blog?.fecha.toDate() | date:'dd/MM/yyyy'}}</h3>
+            </div>
+        </a>
+    </div>
+
+</ng-container>
+    <button routerLink="/inicio" mat-raised-button color="accent">Regresar</button>
+</div>

@@ -1,0 +1,43 @@
+<div class="container" fxHide.lt-md>
+</div>
+
+
+<div class="float" fxFlex ngClass.lt-md="bannermobile" fxLayout.lt-md="column">
+
+
+    <div fxLayout="row" class="floatb" fxFlex="80">
+        <app-banner></app-banner>
+
+    </div>
+    <div class="floatb" fxFlex="20">
+
+
+        <div fxLayout="column" class="c1">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Symtom Checker</mat-label>
+
+                <input type="tel" matInput placeholder="Buscar Blogs">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+        </div>
+
+        <div class="c2">
+            <h1>Popular</h1>
+            <a routerLink="/todos_blogs">Todos los Blogs</a>
+
+            <div *ngFor="let blog of [0,1, 2]">
+                <h2>
+                    {{blogs[blog].titulo}} </h2>
+
+                <h3>{{blogs[blog].autor}} </h3> <br>
+
+                <!-- <h3>{{blogs[blog].fecha}} </h3> -->
+                <h3>{{blogs[blog]?.fecha.toDate() | date:'dd/MM/yyyy'}}</h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>

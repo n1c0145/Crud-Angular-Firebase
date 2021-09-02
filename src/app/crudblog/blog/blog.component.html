@@ -1,0 +1,55 @@
+
+<div *ngIf="editar===false">
+<div *ngIf="blogs">
+<h1>{{blogs.titulo}}</h1>
+<h2>{{blogs.autor}}</h2>
+<h3>{{blogs.fecha}}</h3>
+<p>{{blogs.contenido}}</p>
+</div>
+</div>
+<button mat-raised-button color="accent" (click)="cambiareditar()">Editar</button>
+
+<div *ngIf="editar">
+
+
+    <form #formulario="ngForm" (ngSubmit)="cambiar(formulario)">
+  
+        <div class="a">
+          <mat-form-field>
+            <mat-label class="estilomat">Titulo:</mat-label>
+            <input #titulo="ngModel" name="titulo" [(ngModel)]="blogs.titulo" matInput placeholder="Ingrese el Titulo" class="estiloinput" >
+          </mat-form-field>
+        </div>
+        <div class="a">
+          <mat-form-field>
+            <mat-label class="estilomat">Autor:</mat-label>
+            <input #autor="ngModel" name="autor" [(ngModel)]="blogs.autor"  matInput placeholder="Ingrese el Autor" class="estiloinput">
+          </mat-form-field>
+        </div>
+    
+        <div class="a">
+          <mat-form-field>
+            <mat-label class="estilomat">Fecha:</mat-label>
+            <input #fecha="ngModel" name="fecha" [(ngModel)]="blogs.fecha"  matInput placeholder="Ingrese la Fecha" class="estiloinput">
+          </mat-form-field>
+        </div>
+        <div class="a">
+          <mat-form-field>
+            <mat-label class="estilomat">Contenido:</mat-label>
+            <textarea #contenido="ngModel" name="contenido" [(ngModel)]="blogs.contenido" matInput placeholder="Contenido" class="estiloinput"></textarea>
+    
+          </mat-form-field>
+        </div>
+        <div fxLayoutAlign="center" >
+          <button mat-raised-button type="submit" color="primary" class="boton">Cambiar</button>
+         
+          <button mat-raised-button color="warn" class="boton" (click)="borrar()">Borrar</button>
+
+
+        </div>
+      </form>
+
+
+</div>
+
+

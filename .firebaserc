@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "eduardodb-d4a17": {
+      "hosting": {
+        "blogeduardo": [
+          "eduardodb-d4a17"
+        ]
+      }
+    }
+  }
+}
